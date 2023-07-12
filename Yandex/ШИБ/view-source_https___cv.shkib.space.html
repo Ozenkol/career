@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ШкИБ 2022 CV</title>
+    <script type="text/javascript">
+      'use strict';
+
+      function escapeHtml(unsafe) {
+        return unsafe
+             .replace(/&/g, "&amp;")
+             .replace(/</g, "&lt;")
+             .replace(/>/g, "&gt;")
+             .replace(/"/g, "&quot;")
+             .replace(/'/g, "&#039;");
+       }
+
+      document.addEventListener('DOMContentLoaded', function(event) { 
+        const params = new URLSearchParams(window.location.search);
+        let name = params.get('name');
+        if (!name) {
+          name = 'Василий Кузнецов';
+        }
+
+        const cvContent = document.
+          querySelector('.cv-card-tmpl').
+          text.replaceAll('%name%', escapeHtml(name));
+
+        // No, no, no, little hacker, I didn't use user input as is!
+        document.querySelector('.cv-card').innerHTML = document.
+          querySelector('.safe-frame-tmpl').
+          text.replaceAll('%innerHTML%', escapeHtml(cvContent));
+      });
+    </script>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      .page {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="cv-card"></div>
+  </div>
+  </body>
+  <script type="text/template" class="cv-card-tmpl">
+  <div class="container">
+    <div class="photo">
+      <img src="/guy.png"/>
+    </div>
+    <div class="bio">
+      <p>Имя: %name%</p>
+      <p>Должность: инженер по информационной безопасности</p>
+      <p>Образование: ШкИБ</p>
+      <p>Счастлив: до сих пор</p>
+    </div>
+  </div>
+  <style>
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+    .photo {
+      float: left;
+    }
+    .photo img {
+      width: 100px;
+    }
+    .bio {
+      float: left;
+      margin-left: 2vw;
+    }
+  </style>
+  </script>
+  <script type="text/template" class="safe-frame-tmpl">
+  <iframe srcdoc="%innerHTML%" frameBorder="0" width="600" height="400" sandbox></iframe>
+  </script>
+</html>
